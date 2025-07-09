@@ -7,19 +7,10 @@ import { Button } from "@/components/ui/button";
 
 const starters = [
   {
-    title: "Blank",
-    name: "blank",
-  },
-  {
-    title: "Dashboard",
-    name: "dashboard",
-    url: "/starters/dashboard",
-  },
-  {
-    title: "Store",
-    name: "store",
-    url: "/starters/store",
-  },
+    title: "Testing Store",
+    name: "procore-store",
+    url: "/starters/test-story",
+  }
 ];
 
 export default function StartPage() {

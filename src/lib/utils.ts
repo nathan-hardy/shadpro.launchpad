@@ -11,6 +11,7 @@ export interface Component {
   name: string;
   title: string;
   description?: string;
+  type?: string;
 }
 
 export function getComponents(): Component[] {
