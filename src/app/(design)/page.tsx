@@ -27,74 +27,92 @@ const blockItems = [
 
 export default function Home() {
   return (
-    <main className="container mt-4 p-5 md:mt-8 md:p-10">
-      <div className="mb-8">
-        <div className="space-y-2">
-          <h1 className="font-bold text-3xl tracking-tight md:text-4xl">
+    <main
+      className="max-w-5xl mx-auto mt-[var(--space-lg)] p-[var(--space-lg)] md:mt-[var(--space-xl)] md:p-[var(--space-xl)]"
+      style={{ fontFamily: "var(--font-family)" }}
+    >
+      <div className="mb-[var(--space-xl)]">
+        <div className="space-y-[var(--space-xs)]">
+          <h1
+            className="font-bold tracking-tight"
+            style={{
+              fontSize: "var(--font-size-3xl)",
+              color: "var(--color-primary)",
+              lineHeight: "var(--line-height-lg)",
+            }}
+          >
             Registry
           </h1>
-          <p className="text-muted-foreground">
-            Distribute your design system tokens, custom components, hooks,
-            pages, and other files to any React project.
+          <p
+            className=""
+            style={{ color: "var(--color-muted)", fontSize: "var(--font-size-lg)" }}
+          >
+            Distribute your design system tokens, custom components, hooks, pages, and other files to any React project.
           </p>
         </div>
       </div>
 
-      <div className="mb-4 grid gap-6 md:grid-cols-2">
-        <Card className="shadow-none">
+      <div className="mb-[var(--space-lg)] grid gap-[var(--space-lg)] md:grid-cols-2">
+        <Card className="shadow-none bg-[var(--color-card)] border-[var(--color-card-border)] rounded-[var(--radius-lg)]">
           <CardHeader className="space-y-1">
             <div className="flex items-center justify-between">
-              <CardTitle>Components</CardTitle>
-              <div className="rounded-md bg-primary p-1">
-                <ToyBrick className="size-5 text-primary-foreground" />
+              <CardTitle style={{ color: "var(--color-primary)", fontSize: "var(--font-size-xl)" }}>Components</CardTitle>
+              <div className="rounded-[var(--radius-md)] bg-[var(--color-primary)] p-1">
+                <ToyBrick className="size-5 text-[var(--color-primary-foreground)]" />
               </div>
             </div>
-            <CardDescription>
+            <CardDescription style={{ color: "var(--color-muted)", fontSize: "var(--font-size-md)" }}>
               Reusable UI components for your application
             </CardDescription>
           </CardHeader>
 
           <CardContent>
-            <div className="space-y-2">
+            <div className="space-y-[var(--space-xs)]">
               {componentItems.map((item) => (
                 <div
                   key={item.name}
                   className="flex items-center justify-between"
                 >
-                  <Link href={item.path} className="text-sm hover:underline">
+                  <Link
+                    href={item.path}
+                    className="text-[var(--color-link)] hover:underline text-[var(--font-size-md)]"
+                  >
                     {item.name}
                   </Link>
-                  <ArrowRight className="size-4 text-muted-foreground" />
+                  <ArrowRight className="size-4 text-[var(--color-muted)]" />
                 </div>
               ))}
             </div>
           </CardContent>
         </Card>
 
-        <Card className="shadow-none">
+        <Card className="shadow-none bg-[var(--color-card)] border-[var(--color-card-border)] rounded-[var(--radius-lg)]">
           <CardHeader className="space-y-1">
             <div className="flex items-center justify-between">
-              <CardTitle>Blocks</CardTitle>
-              <div className="rounded-md bg-foreground p-1">
-                <Blocks className="size-5 text-primary-foreground" />
+              <CardTitle style={{ color: "var(--color-primary)", fontSize: "var(--font-size-xl)" }}>Blocks</CardTitle>
+              <div className="rounded-[var(--radius-md)] bg-[var(--color-foreground)] p-1">
+                <Blocks className="size-5 text-[var(--color-primary-foreground)]" />
               </div>
             </div>
-            <CardDescription>
+            <CardDescription style={{ color: "var(--color-muted)", fontSize: "var(--font-size-md)" }}>
               Pre-built UI blocks for common patterns
             </CardDescription>
           </CardHeader>
 
           <CardContent>
-            <div className="space-y-2">
+            <div className="space-y-[var(--space-xs)]">
               {blockItems.map((item) => (
                 <div
                   key={item.name}
                   className="flex items-center justify-between"
                 >
-                  <Link href={item.path} className="text-sm hover:underline">
+                  <Link
+                    href={item.path}
+                    className="text-[var(--color-link)] hover:underline text-[var(--font-size-md)]"
+                  >
                     {item.name}
                   </Link>
-                  <ArrowRight className="size-4 text-muted-foreground" />
+                  <ArrowRight className="size-4 text-[var(--color-muted)]" />
                 </div>
               ))}
             </div>
@@ -102,35 +120,27 @@ export default function Home() {
         </Card>
       </div>
 
-      <div className="mb-4 rounded-lg border bg-card p-6">
-        <div className="flex flex-col gap-2">
-          <h2 className="font-semibold text-xl">About</h2>
-          <p className="text-muted-foreground">
-            This registry serves as a central repository for all UI components
-            and blocks used in your applications. It helps maintain consistency
-            across your products and speeds up development by providing
-            ready-to-use components. Each component and block is documented with
-            examples. You can browse components by category, search for specific
-            components, and view examples of how they are used in different
-            contexts.
+      <div className="mb-[var(--space-lg)] rounded-[var(--radius-lg)] border bg-[var(--color-card)] border-[var(--color-card-border)] p-[var(--space-lg)]">
+        <div className="flex flex-col gap-[var(--space-xs)]">
+          <h2 className="font-semibold" style={{ fontSize: "var(--font-size-lg)", color: "var(--color-primary)" }}>About</h2>
+          <p style={{ color: "var(--color-muted)", fontSize: "var(--font-size-md)" }}>
+            This registry serves as a central repository for all UI components and blocks used in your applications. It helps maintain consistency across your products and speeds up development by providing ready-to-use components. Each component and block is documented with examples. You can browse components by category, search for specific components, and view examples of how they are used in different contexts.
           </p>
-          <p className="mt-2 text-muted-foreground">
+          <p className="mt-2" style={{ color: "var(--color-muted)", fontSize: "var(--font-size-md)" }}>
             To get begin, select a{" "}
-            <a href="/starters" className="underline">
+            <a href="/starters" className="underline text-[var(--color-link)]">
               starter
             </a>{" "}
-            and click the <span className="font-bold">Open in v0</span> button.
-            You can also open individual components or blocks in v0 if you want
-            a smaller or more specific starting point.
+            and click the <span className="font-bold">Open in v0</span> button. You can also open individual components or blocks in v0 if you want a smaller or more specific starting point.
           </p>
 
-          <p className="mt-4 text-[#1B1F23] dark:text-white">
+          <p className="mt-4 text-[var(--color-primary)] dark:text-[var(--color-primary)]">
             <a href="https://github.com/vercel/registry-starter">
               <svg
                 viewBox="0 0 1024 1024"
                 xmlns="http://www.w3.org/2000/svg"
                 role="graphics-symbol"
-                className="mr-1 inline size-4 fill-[#1B1F23] dark:fill-white"
+                className="mr-1 inline size-4 fill-[var(--color-primary)] dark:fill-[var(--color-primary)]"
               >
                 <path
                   fillRule="evenodd"
@@ -145,16 +155,13 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="rounded-lg border bg-card p-6">
-        <div className="flex flex-col gap-2">
-          <h2 className="font-semibold text-xl">MCP</h2>
-          <p className="mb-4 text-muted-foreground">
-            Integrate this registry with AI IDEs using Model Context Protocol
-            (MCP) using the following configuration. This utilizes this
-            Registry's style tokens and the Shadcn CLI. To ensure this works,
-            double check that the{" "}
+      <div className="rounded-[var(--radius-lg)] border bg-[var(--color-card)] border-[var(--color-card-border)] p-[var(--space-lg)]">
+        <div className="flex flex-col gap-[var(--space-xs)]">
+          <h2 className="font-semibold" style={{ fontSize: "var(--font-size-lg)", color: "var(--color-primary)" }}>MCP</h2>
+          <p className="mb-4" style={{ color: "var(--color-muted)", fontSize: "var(--font-size-md)" }}>
+            Integrate this registry with AI IDEs using Model Context Protocol (MCP) using the following configuration. This utilizes this Registry's style tokens and the Shadcn CLI. To ensure this works, double check that the{" "}
             <Link href="/r/registry.json">
-              <code className="inline text-sm tabular-nums underline">
+              <code className="inline text-sm tabular-nums underline text-[var(--color-link)]">
                 style:registry
               </code>
             </Link>{" "}

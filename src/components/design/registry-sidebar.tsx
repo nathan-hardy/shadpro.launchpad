@@ -55,8 +55,8 @@ export function MobileSidebarTrigger() {
   const { setOpenMobile } = useSidebar();
 
   return (
-    <div className="absolute top-8 right-4 md:hidden">
-      <Button aria-label="Open menu" onClick={() => setOpenMobile(true)}>
+    <div className="absolute top-[var(--space-xl)] right-[var(--space-lg)] md:hidden">
+      <Button aria-label="Open menu" onClick={() => setOpenMobile(true)} className="bg-[var(--color-sidebar)] text-[var(--color-sidebar-foreground)] rounded-[var(--radius-md)] shadow-[var(--shadow-xs)]">
         <Menu className="size-5" />
       </Button>
     </div>
@@ -84,44 +84,45 @@ export function RegistrySidebar() {
   }, [searchTerm]);
 
   return (
-    <Sidebar collapsible="icon">
-      <SidebarHeader className="border-b">
-        <div className="flex items-center justify-between px-2 py-2">
+    <Sidebar collapsible="icon" className="bg-[var(--color-sidebar)] border-r border-[var(--color-sidebar-border)] text-[var(--color-sidebar-foreground)]">
+      <SidebarHeader className="border-b border-[var(--color-sidebar-border)] bg-[var(--color-sidebar)]">
+        <div className="flex items-center justify-between px-[var(--space-xs)] py-[var(--space-xs)]">
           <Link href="/" className="flex min-w-0 items-center gap-2">
             <RegistryLogo />
           </Link>
 
           <Button
             variant="ghost"
-            className="md:hidden"
+            className="md:hidden text-[var(--color-sidebar-foreground)]"
             onClick={() => setOpenMobile(false)}
           >
             <X />
           </Button>
         </div>
-        <div className="px-2 py-2 opacity-100 transition-all duration-200">
+        <div className="px-[var(--space-xs)] py-[var(--space-xs)] opacity-100 transition-all duration-200">
           <div className="relative">
-            <Search className="absolute top-2.5 left-2.5 size-4 text-muted-foreground" />
+            <Search className="absolute top-2.5 left-2.5 size-4 text-[var(--color-muted)]" />
             <Input
               type="search"
               placeholder="Search..."
-              className="pl-8"
+              className="pl-8 bg-[var(--color-input-bg)] border-[var(--color-input-border)] focus:border-[var(--color-input-focus)] text-[var(--color-sidebar-foreground)] rounded-[var(--radius-md)]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              style={{ fontFamily: "var(--font-family)", fontSize: "var(--font-size-md)" }}
             />
           </div>
         </div>
       </SidebarHeader>
 
       <SidebarContent>
-        <ScrollArea className="h-full w-full pr-2">
+        <ScrollArea className="h-full w-full pr-[var(--space-xs)]">
           <Collapsible defaultOpen={true} className="group/collapsible">
             <SidebarGroup>
               <CollapsibleTrigger className="w-full">
-                <SidebarGroupLabel className="flex cursor-pointer items-center justify-between">
+                <SidebarGroupLabel className="flex cursor-pointer items-center justify-between text-[var(--color-sidebar-foreground)]">
                   <div className="flex min-w-0 items-center">
                     <Home className="size-4 flex-shrink-0" />
-                    <span className="ml-2 opacity-100 transition-all duration-200">
+                    <span className="ml-2 opacity-100 transition-all duration-200" style={{ fontSize: "var(--font-size-md)", fontWeight: "var(--font-weight-medium)" }}>
                       Getting Started
                     </span>
                   </div>
@@ -137,6 +138,8 @@ export function RegistrySidebar() {
                         <SidebarMenuButton
                           asChild
                           isActive={pathname === item.path}
+                          className={pathname === item.path ? "bg-[var(--color-sidebar-primary)] text-[var(--color-sidebar-primary-foreground)]" : "text-[var(--color-sidebar-foreground)]"}
+                          style={{ borderRadius: "var(--radius-md)", fontSize: "var(--font-size-md)" }}
                         >
                           <Link
                             onClick={() => setOpenMobile(false)}
