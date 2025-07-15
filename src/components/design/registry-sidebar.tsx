@@ -56,7 +56,7 @@ export function MobileSidebarTrigger() {
 
   return (
     <div className="absolute top-[var(--space-xl)] right-[var(--space-lg)] md:hidden">
-      <Button aria-label="Open menu" onClick={() => setOpenMobile(true)} className="bg-[var(--color-sidebar)] text-[var(--color-sidebar-foreground)] rounded-[var(--radius-md)] shadow-[var(--shadow-xs)]">
+      <Button aria-label="Open menu" onClick={() => setOpenMobile(true)} className="bg-[var(--sidebar)] text-[var(--sidebar-foreground)] rounded-[var(--radius-md)] shadow-[var(--shadow-xs)]">
         <Menu className="size-5" />
       </Button>
     </div>
@@ -84,28 +84,28 @@ export function RegistrySidebar() {
   }, [searchTerm]);
 
   return (
-    <Sidebar collapsible="icon" className="bg-[var(--color-sidebar)] border-r border-[var(--color-sidebar-border)] text-[var(--color-sidebar-foreground)]">
-      <SidebarHeader className="border-b border-[var(--color-sidebar-border)] bg-[var(--color-sidebar)]">
-        <div className="flex items-center justify-between px-[var(--space-xs)] py-[var(--space-xs)]">
+    <Sidebar collapsible="icon" className="w-[260px] min-w-[220px] max-w-[320px] bg-[var(--sidebar)] border-r border-[var(--sidebar-border)] text-[var(--sidebar-foreground)] shadow-[var(--shadow-xs)]">
+      <SidebarHeader className="border-b border-[var(--sidebar-border)] bg-[var(--sidebar)] px-[var(--space-lg)] py-[var(--space-md)]">
+        <div className="flex items-center justify-between">
           <Link href="/" className="flex min-w-0 items-center gap-2">
             <RegistryLogo />
           </Link>
 
           <Button
             variant="ghost"
-            className="md:hidden text-[var(--color-sidebar-foreground)]"
+            className="md:hidden text-[var(--sidebar-foreground)]"
             onClick={() => setOpenMobile(false)}
           >
             <X />
           </Button>
         </div>
-        <div className="px-[var(--space-xs)] py-[var(--space-xs)] opacity-100 transition-all duration-200">
+        <div className="mt-[var(--space-md)]">
           <div className="relative">
-            <Search className="absolute top-2.5 left-2.5 size-4 text-[var(--color-muted)]" />
+            <Search className="absolute top-2.5 left-2.5 size-4 text-[var(--muted)]" />
             <Input
               type="search"
               placeholder="Search..."
-              className="pl-8 bg-[var(--color-input-bg)] border-[var(--color-input-border)] focus:border-[var(--color-input-focus)] text-[var(--color-sidebar-foreground)] rounded-[var(--radius-md)]"
+              className="pl-8 bg-[var(--sidebar)] border-[var(--sidebar-border)] focus:border-[var(--sidebar-ring)] text-[var(--sidebar-foreground)] rounded-[var(--radius-md)] shadow-[var(--shadow-xs)]"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{ fontFamily: "var(--font-family)", fontSize: "var(--font-size-md)" }}
@@ -114,12 +114,12 @@ export function RegistrySidebar() {
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="pt-[var(--space-lg)] px-[var(--space-lg)]">
         <ScrollArea className="h-full w-full pr-[var(--space-xs)]">
           <Collapsible defaultOpen={true} className="group/collapsible">
             <SidebarGroup>
               <CollapsibleTrigger className="w-full">
-                <SidebarGroupLabel className="flex cursor-pointer items-center justify-between text-[var(--color-sidebar-foreground)]">
+                <SidebarGroupLabel className="flex cursor-pointer items-center justify-between text-[var(--sidebar-foreground)]">
                   <div className="flex min-w-0 items-center">
                     <Home className="size-4 flex-shrink-0" />
                     <span className="ml-2 opacity-100 transition-all duration-200" style={{ fontSize: "var(--font-size-md)", fontWeight: "var(--font-weight-medium)" }}>
@@ -138,8 +138,8 @@ export function RegistrySidebar() {
                         <SidebarMenuButton
                           asChild
                           isActive={pathname === item.path}
-                          className={pathname === item.path ? "bg-[var(--color-sidebar-primary)] text-[var(--color-sidebar-primary-foreground)]" : "text-[var(--color-sidebar-foreground)]"}
-                          style={{ borderRadius: "var(--radius-md)", fontSize: "var(--font-size-md)" }}
+                          className={pathname === item.path ? "bg-[var(--sidebar-primary)] text-[var(--sidebar-primary-foreground)] font-semibold" : "text-[var(--sidebar-foreground)] hover:bg-[var(--sidebar-accent)] hover:text-[var(--sidebar-accent-foreground)] transition-colors"}
+                          style={{ borderRadius: "var(--radius-md)", fontSize: "var(--font-size-md)", marginBottom: '4px' }}
                         >
                           <Link
                             onClick={() => setOpenMobile(false)}
@@ -158,7 +158,7 @@ export function RegistrySidebar() {
         </ScrollArea>
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="px-[var(--space-lg)] pb-[var(--space-lg)] pt-[var(--space-md)] border-t border-[var(--sidebar-border)]">
         <div className="flex justify-end">
           <ModeToggle />
         </div>

@@ -16,27 +16,28 @@ const starters = [
 export default function StartPage() {
   return (
     <div
-      className="max-w-5xl mx-auto p-[var(--space-lg)] md:p-[var(--space-xl)]"
+      className="max-w-5xl mx-auto p-[var(--space-xl)] md:p-[var(--space-2xl)]"
       style={{ fontFamily: "var(--font-family)" }}
     >
-      <div className="mb-[var(--space-xl)] flex items-center justify-between">
-        <div>
-          <Button variant="ghost" size="sm" asChild className="mb-[var(--space-xs)]">
-            <Link href="/">
-              <ArrowLeft className="mr-2 size-4" />
-              Back to Home
-            </Link>
-          </Button>
-          <h1
-            className="font-bold tracking-tight"
-            style={{ fontSize: "var(--font-size-3xl)", color: "var(--color-primary)", lineHeight: "var(--line-height-lg)" }}
-          >
-            Starters
-          </h1>
-        </div>
+      {/* Top Section */}
+      <div className="mb-[var(--space-xl)] flex items-center gap-[var(--space-sm)]">
+        <Button variant="ghost" size="sm" asChild className="mb-0">
+          <Link href="/">
+            <ArrowLeft className="mr-2 size-4" />
+            Back to Home
+          </Link>
+        </Button>
+        <span className="h-5 w-px bg-[var(--border)] mx-[var(--space-xs)]" />
+        <h1
+          className="font-bold tracking-tight"
+          style={{ fontSize: "var(--font-size-3xl)", color: "var(--primary)", lineHeight: "var(--line-height-lg)", letterSpacing: "-0.02em" }}
+        >
+          Starters
+        </h1>
       </div>
 
-      <div className="flex flex-col gap-[var(--space-xl)]">
+      {/* Starters List */}
+      <div className="grid gap-[var(--space-xl)] md:grid-cols-2">
         {starters.map((starter) => (
           <ComponentCard
             key={starter.name}
